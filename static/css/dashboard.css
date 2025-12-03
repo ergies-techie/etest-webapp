@@ -1,0 +1,38 @@
+.card{
+    height: 500px;
+}
+.container {
+    margin-top: 0;
+    height: 600px;
+}
+
+.userDetails {
+    display: flex;
+    justify-content: right;
+    align-self: center;
+    align-items: center;
+    padding: 10px;
+}
+
+/* button.user {
+    padding: 8px 15px;
+    border-radius: 10px;
+    border: 1px solid #e6e6ee;
+    background: #b9b9b9;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: left;
+} */
+button.logout {
+    background-color: #c71f1f;
+}
+
+button.menuBtns {
+    padding: 10px 30px;
+    border-radius: 10px;
+    border: 1px solid #e6e6ee;
+    background: #fafafa;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: left;
+}

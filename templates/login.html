@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+    <title>Log in</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h2 class="cardItem">Login</h2>
+                <div id="popupOverlay" class="popup-overlay">
+                    <div class="popup">
+                        <p>Registrovaní uživatelé vidí jak odpovídali.</p>
+                        <div class="cardItem" style="margin-top: 20px;">
+                            <input id="usernameReg" type="text" placeholder="Username" class="input">
+                        </div>
+                        <div class="cardItem">
+                            <input id="passwordReg" type="password" placeholder="Password" class="input">
+                        </div>
+                        <div class="cardItem twoButtons">
+                            <button id="register-save" class="button login">Uložit</button>
+                            <button id="closePopup" class="button login close-btn">Zavřít</button>
+                        </div>
+                    </div>
+                </div>
+            
+            
+            <div class="cardItem">
+                <input id="username" type="text" placeholder="Username" class="input">
+            </div>
+            <div class="cardItem">
+                 <input id="password" type="password" placeholder="Password" class="input">
+            </div>
+            <div class="cardItem twoButtons">
+                <button id="login-btn" class="button login">Přihlásit</button>
+                <button id="guest-btn" class="button login">Pokračovat jako Host</button>
+            </div>           
+            <div class="cardItem">
+                <button id="openPopup" class="button login" style="background-color: aquamarine; margin-top: 0px;">Registrace</button>
+            </div>
+            <p id="msg" class="cardItem"></p>
+        </div>
+    </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+</html>

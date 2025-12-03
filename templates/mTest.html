@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="cz">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/questions.css')}}">    
+    <title>eTest</title>
+</head>
+
+<body>
+    <div class="userContainer">
+        <div class="userCard">
+            <span>Přihlášen jako: </span>
+            <button id="userName" class="user"></button>
+            <button id="logout" class="user logout">Odhlásit</button>
+        </div>
+    </div>
+    <div class="container">  
+        <div class="card">
+                <h2 class="cardItem" id="status"></h2>
+                <div class="cardItem" id="QA"></div>
+                <div class="navigation cardItem" id="Control"></div>
+            </div>
+            <div class="card Qlist">
+            <div class="cardItem questionsList" id="questionsList"></div>
+    </div>
+    <script src="{{ url_for('static', filename='js/userPanel.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/mTest.js') }}"></script>
+</body>
+</html>

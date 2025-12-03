@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css')}}">    
+    <title>eTest Dashboard</title>
+</head>
+
+<body>
+    <div class="userContainer">
+        <div class="userCard">
+            <span>Přihlášen jako: </span>
+            <button id="userName" class="user"></button>
+            <button id="logout" class="user logout">Odhlásit</button>
+        </div>
+    </div>
+    <div class="container">
+            <div class="card">
+                <h2 class="cardItem">Dashboard</h2>
+                <div class="cardItem" id="menu"></div>
+            </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/userPanel.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
