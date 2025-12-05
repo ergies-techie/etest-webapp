@@ -36,14 +36,14 @@ async function loadQuestion(qid = null){
     const answerContainer = document.createElement('div');
     questionContainer.className = 'question';
     questionContainer.textContent = data.question;
-    // console.log(data);
+    
     data.answers.forEach(a=>{
         const btn = document.createElement('button');
         btn.className = 'button answers';
         btn.textContent = a.text;
         btn.questionID = data.question_id;
         btn.rightAnswer = data.rightAnswer;
-        btn.id = a.id + 1000000; //lAQIDs uses ID from question as well
+        btn.id = a.id + 1000000; 
 
         const answered = myAnswers.find(ans => ans[0] == data.question_id);
            
@@ -83,10 +83,10 @@ async function checkAnswer(btn){
         button.disabled = true;
     });
 
-        //sidepanel color change
+        
     sideBtn = document.getElementById(btn.questionID);
     sideBtn.classList.add('selectedAnswer');
-    //clear myAnswers of previous answer to this question
+    
     myAnswers = myAnswers.filter(ans => ans[0] != btn.questionID);
     myAnswers.push([btn.questionID, btn.id - 1000000, btn.rightAnswer])
 }
@@ -105,10 +105,9 @@ function updateStatus(){
     const unansveredCount = itemsU.length;
     
     const statusLine = document.getElementById("status");
-    statusLine.innerHTML=`Celkem zodpovězeno ${correctCount + wrongCount} otázek z 
-        ${correctCount + wrongCount + unansveredCount}<br>
+    statusLine.innerHTML=`Celkem zodpovězeno ${correctCount + wrongCount} otázek <br>
         ${correctCount} správně, ${wrongCount} špatně<br>
-        úspěšnost ${((correctCount / (correctCount + wrongCount)) *100).toFixed(0)}%.`;
+        úspěšnost ${((correctCount / (correctCount + wrongCount)) *100).toFixed(0)}%`;
 }
 
 function controlButtons(){
@@ -126,7 +125,7 @@ function controlButtons(){
 
     nextBtn.onclick = () => goToNextQuestion();
     backBtn.onclick = () => goToPrevQuestion();
-    menuBtn.onclick = () => evaluateTest(menuBtn); // TODO make funct
+    menuBtn.onclick = () => evaluateTest(menuBtn); 
     const cont = document.getElementById('Control');
 
     cont.appendChild(backBtn);

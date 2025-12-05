@@ -39,8 +39,8 @@ async function loadQuestion(qid = null){
         btn.className = 'button answers';
         btn.textContent = a.text;
         btn.qID = data.question_id;
-        btn.id = a.id + 100000; //lAQIDs uses ID from question as well
-        btn.onclick = () => {checkAnswer(btn)} //TODO Get answer working
+        btn.id = a.id + 100000; 
+        btn.onclick = () => {checkAnswer(btn)} 
         answerContainer.appendChild(btn);
     });
     try{ 
@@ -60,20 +60,20 @@ async function checkAnswer(btn){
     if (btn.id -100000 == answer){
         btn.classList.add('ansveredCorrect');
                                 
-        //sidepanel color change
+        
         sideBtn = document.getElementById(btn.qID);
         sideBtn.classList.remove('ansveredCorrect','ansveredWrong','unansvered', 'error');
         sideBtn.classList.add('ansveredCorrect');
     }
     else{
-        //wrong answer color change
+        
         btn.classList.add('ansveredWrong');
 
-        //correct answer button color change
+        
         correctButton = document.getElementById(answer+100000);
         correctButton.classList.add('ansveredCorrect');
         
-        //sidepanel color change
+        
         sideBtn = document.getElementById(btn.qID);
         sideBtn.classList.remove('ansveredCorrect','ansveredWrong','unansvered', 'error');
         sideBtn.classList.add('ansveredWrong');
@@ -96,10 +96,9 @@ function updateStatus(){
     const unansveredCount = itemsU.length;
     
     const statusLine = document.getElementById("status");
-    statusLine.innerHTML=`Zodpovězeno ${correctCount + wrongCount} otázek z 
-        ${correctCount + wrongCount + unansveredCount},<br>
-        ${correctCount} správně, ${wrongCount} špatně,<br>
-        úspěšnost ${((correctCount / (correctCount + wrongCount)) *100).toFixed(0)}%.`;
+    statusLine.innerHTML=`Zodpovězeno ${correctCount + wrongCount} otázek <br>
+        ${correctCount} správně, ${wrongCount} špatně<br>
+        úspěšnost ${((correctCount / (correctCount + wrongCount)) *100).toFixed(0)}%`;
 }
 
 async function loadAllQuestionsIDs(){
@@ -110,11 +109,11 @@ async function loadAllQuestionsIDs(){
         const btn = document.createElement('button');
         btn.className = 'button questionIDs';
         btn.classList.add('error','sidebutton');
-        //TODO check if notAnswered is working
+        
         if (a.answeredY){btn.classList.add('ansveredCorrect');btn.classList.remove('error');};
         if (a.answeredW){btn.classList.add('ansveredWrong');btn.classList.remove('error');};
         if (a.notAnswered){btn.classList.add('unviewed');btn.classList.remove('error');}; 
-        //TODO update API to send this data
+        
         btn.textContent = a.id;
         btn.id = a.id;
         btn.onclick = () => {loadQuestion(btn.id);}
@@ -123,7 +122,7 @@ async function loadAllQuestionsIDs(){
     });
     const cont = document.getElementById('questionsList');
     cont.appendChild(allQContainer);  
-    //updateStatus(); //uncomment when classes are implemened
+    
 }
 
 function controlButtons(){
@@ -151,8 +150,7 @@ function controlButtons(){
 function goToNextQuestion() {
     const current = document.querySelector(".questionIDs.active");
     if (!current) return;
-    // console.log(current.classList.contains('ansveredWrong'));
-    // if (current.classList.contains() === null) return;
+    
     if(!current.classList.contains('ansveredCorrect') && !current.classList.contains('ansveredWrong')) {
         current.classList.add('unansvered');
     }
@@ -171,19 +169,5 @@ function goToMenu(){
     window.location.href = "/dashboard";
 }
 
-function selectedQ(qBtn){
-    // try {
-    //     const response = await fetch("/api/selectedA", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json" 
-    //         },
-    //         body: JSON.stringify({ 
-    //             "aID":(btn.id - 1000) 
-    //         })
-    //     });
-    //     data = await response.json();
-    // } catch (error) {
-    //     console.error("Error:", error);
-    // }
-    }
+
+    
