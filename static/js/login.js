@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const loginBtn = document.getElementById("login-btn");
+    const loginBtn = document.getElementById("register-save");
     const guestBtn = document.getElementById("guest-btn");
     loginBtn.addEventListener("mouseenter", () => {loginBtn.style.backgroundColor = "#3da8ff"});
     loginBtn.addEventListener("mouseleave", () => {loginBtn.style.backgroundColor = "#7ac3ff"});
@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function loginButtonClicked() {
 
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
+        const username = document.getElementById("usernameReg").value;
+        const password = document.getElementById("passwordReg").value;
 
         const response = await fetch("/api/login", {
             method: "POST",

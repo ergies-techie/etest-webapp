@@ -9,10 +9,13 @@
 <body>
     <div class="container">
         <div class="card">
-            <h2 class="cardItem">Login</h2>
+            
+            <h2 class="cardItem">Testové otázky k odborné způsobilosti v Elektrotechnice</h2>
+            <div class="cardItem" style="margin-top: -40px;">dle nařízení vlády ČR č. 194/2022 Sb.</div>
+           
                 <div id="popupOverlay" class="popup-overlay">
                     <div class="popup">
-                        <p>Registrovaní uživatelé vidí jak odpovídali.</p>
+                        <p>Log-in</p>
                         <div class="cardItem" style="margin-top: 20px;">
                             <input id="usernameReg" type="text" placeholder="Username" class="input">
                         </div>
@@ -20,7 +23,7 @@
                             <input id="passwordReg" type="password" placeholder="Password" class="input">
                         </div>
                         <div class="cardItem twoButtons">
-                            <button id="register-save" class="button login">Uložit</button>
+                            <button id="register-save" class="button login">Pokračovat</button>
                             <button id="closePopup" class="button login close-btn">Zavřít</button>
                         </div>
                     </div>
@@ -28,21 +31,22 @@
             
             
             <div class="cardItem">
-                <input id="username" type="text" placeholder="Username" class="input">
+                <input id="username" type="text" placeholder="Username" class="input" style="display: none;">
             </div>
             <div class="cardItem">
-                 <input id="password" type="password" placeholder="Password" class="input">
+                 <input id="password" type="password" placeholder="Password" class="input" style="display: none;">
             </div>
             <div class="cardItem twoButtons">
-                <button id="login-btn" class="button login">Přihlásit</button>
-                <button id="guest-btn" class="button login">Pokračovat jako Host</button>
+                <button id="login-btn" class="button login" style="display: none;">Přihlásit</button>
+                <button id="guest-btn" class="button login">Pokračovat</button>
             </div>           
             <div class="cardItem">
-                <button id="openPopup" class="button login" style="background-color: aquamarine; margin-top: 0px;">Registrace</button>
+                <button id="openPopup" class="button login" style="background-color: aquamarine; margin-top: 0px;">Příhlášení</button>
             </div>
             <p id="msg" class="cardItem"></p>
         </div>
     </div>
+    <div class="meta">App by @Ergies</div>
     </div>
     <script src="{{ url_for('static', filename='js/login.js') }}"></script>
 </body>

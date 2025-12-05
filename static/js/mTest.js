@@ -1,5 +1,6 @@
 let myAnswers = []; // [questionID, answerID, rightAnswer]
 let currentQuestionID;
+let testFinished = false;
 
 document.addEventListener("DOMContentLoaded", async () => {
     await getTenQIDs();
@@ -35,6 +36,7 @@ async function loadQuestion(qid = null){
     const answerContainer = document.createElement('div');
     questionContainer.className = 'question';
     questionContainer.textContent = data.question;
+    // console.log(data);
     data.answers.forEach(a=>{
         const btn = document.createElement('button');
         btn.className = 'button answers';
@@ -44,9 +46,24 @@ async function loadQuestion(qid = null){
         btn.id = a.id + 1000000; //lAQIDs uses ID from question as well
 
         const answered = myAnswers.find(ans => ans[0] == data.question_id);
+           
         if(answered){ 
-            if(answered[1] == a.id){
-                btn.classList.add("selectedAnswer");
+                if(answered[1] == a.id){
+                    btn.classList.add("selectedAnswer");
+       }}
+
+        if(testFinished){   
+            btn.disabled = true;
+            if(answered){ 
+                console.log(answered[2], a.id);
+                if(answered[2] == a.id){
+                    btn.classList.remove("selectedAnswer");
+                    btn.classList.add("ansveredCorrect");
+                }
+                if(btn.classList.contains("selectedAnswer")){
+                    btn.classList.remove("selectedAnswer");
+                    btn.classList.add("ansveredWrong");
+                }
             }}
         btn.onclick = () => {checkAnswer(btn)} 
         answerContainer.appendChild(btn);
@@ -167,6 +184,7 @@ async function getTenQIDs(){
 }
 
 async function evaluateTest(menuBtn){
+    testFinished = true;    
     const elements = Array.from(document.getElementsByClassName('notAnsvered'));
     elements.forEach(e => {e.classList.remove('notAnsvered'); e.classList.add('unansvered');});
     await myAnswers.forEach(a =>{

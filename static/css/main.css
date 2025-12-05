@@ -98,3 +98,9 @@ button.logout {
     background-color: #c71f1f;
 }
 
+.meta {
+    margin-top: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+    text-align: center;
+}

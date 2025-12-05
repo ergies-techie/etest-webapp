@@ -10,7 +10,7 @@ QUESTIONS_DB = os.path.join(BASE_DIR, 'db', 'questions.db')
 USERS_DB = os.path.join(BASE_DIR,'db', 'users.db')
 
 app = Flask(__name__)
-app.secret_key = 'CHANGE_THIS_TO_A_RANDOM_SECRET'  # IMPORTANT: replace in production
+app.secret_key = 'THIS_IS_MY_KEY_WHICH_IS_A_GREAT_SECRET@ERGIES'  # IMPORTANT: replace in production
 app.config['JSON_SORT_KEYS'] = False
 
 # -------------------- Users DB helpers --------------------
@@ -231,7 +231,7 @@ def logout():
 @login_required
 def getMyOptions():
     admin = {"id":0, "text":"admin panel", "href":"/adminPanelOld"}
-    response = [{"id": 1, "text": "Test na nečisto", "href":"/mockTest"},
+    response = [{"id": 1, "text": "Test", "href":"/mockTest"},
                 {"id":2, "text":"Všechny otázky", "href":"/allQuestions"}]
     userID = session.get('user_id')
     
